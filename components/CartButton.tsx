@@ -1,5 +1,6 @@
 "use client";
 
+import styles from "@/components/cart.module.scss";
 import useCart from "@/stores/useCart";
 import { FaShoppingCart } from "react-icons/fa";
 
@@ -10,23 +11,10 @@ export default function CartButton({ }: CartButtonProps) {
   return (
     <>
       <button
-        style={{
-          backgroundColor: "#fff",
-          padding: "8px 20px",
-          borderRadius: "5px",
-          border: "none",
-          fontSize: "18px",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          alignItems: "center",
-          width: '90px',
-          height: '45px',
-          fontWeight: 'bold',
-        }}
+        className={styles.toggle}
         onClick={toggleCart}
       >
-        <FaShoppingCart />
+        <FaShoppingCart className="cart-icon" />
         <span>{items.length}</span>
       </button>
     </>
