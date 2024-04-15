@@ -1,10 +1,13 @@
+import Produtos from '@/components/Produtos';
+import Cart from '@/components/Cart';
+
 import styles from "@/app/page.module.scss";
-import Produtos from '../components/Produtos';
 
 export default function Home() {
   return (
     <main className={styles.main}>
      <Produtos/>
+     <Cart/>
     </main>
   );
 }

@@ -1,6 +1,8 @@
 "use client";
 
 import { Product } from "@/lib/types";
+import useCart from "@/stores/useCart";
+
 import { FiShoppingBag } from "react-icons/fi";
 
 interface ProdutoProps {
@@ -9,6 +11,8 @@ interface ProdutoProps {
 }
 
 export default function Produto({ data }: ProdutoProps) {
+  const { addItem } = useCart();
+
   return (
     <>
       <div key={data.id}
@@ -82,7 +86,7 @@ export default function Produto({ data }: ProdutoProps) {
           </p>
         </div>
 
-        <div
+        <button
           style={{
             background: "#0F52BA",
             color: "#fff",
@@ -96,13 +100,15 @@ export default function Produto({ data }: ProdutoProps) {
             gap: "10px",
             fontSize: "16px",
             fontWeight: "bold",
+            border: "none",
           }}
+          onClick={() => addItem({product: data, quantity: 1})}
         >
           <FiShoppingBag />
           <p>
             COMPRAR
           </p>
-        </div>
+        </button>
       </div>
     </>
   );

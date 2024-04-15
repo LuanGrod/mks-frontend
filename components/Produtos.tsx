@@ -5,6 +5,7 @@ import { Product } from "@/lib/types";
 import { useQuery } from "@tanstack/react-query";
 import Produto from "./Produto";
 import Skeleton from "./Skeleton";
+import { useCartStore } from "@/providers/cart-store-provider";
 
 
 interface ProdutosProps { }
@@ -28,12 +29,26 @@ export default function Produtos({ }: ProdutosProps) {
     return <div>Error fetching data</div>;
   }
 
+  /*
+  const { items, addItem, removeItem } = useCartStore(
+    (state) => state,
+  )
+  */
+
   // Render the data
   return (
     <div style={{
       display: "grid",
       gridTemplateColumns: "repeat(4, 1fr)",
     }}>
+      {/* {
+        items.map((item) => (
+          <div key={item.id}>
+            <p>{item.name}</p>
+            <button onClick={() => removeItem(item)}>Remove</button>
+          </div>
+        ))
+      } */}
       {data.products.map((product: Product) => (
         <Produto key={product.id} data={product} />
       ))}

@@ -13,7 +13,7 @@ export default function Providers({ children }: ProvidersProps) {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        {children}
+          {children}
       </QueryClientProvider>
     </>
   );
