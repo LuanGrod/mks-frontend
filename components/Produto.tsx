@@ -44,7 +44,7 @@ export default function Produto({ data }: ProdutoProps) {
           <div
             style={{
               width: "100%",
-              height: "fit-content",
+              height: "40px",
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
@@ -71,6 +71,7 @@ export default function Produto({ data }: ProdutoProps) {
                 width: "fit-content",
                 height: "fit-content",
                 margin: 0,
+                marginLeft: "2px"
               }}
             >
               {"R$" + parseInt(data.price)}
@@ -80,6 +81,7 @@ export default function Produto({ data }: ProdutoProps) {
             style={{
               fontSize: "10px",
               margin: "5px 0 0 0",
+              textAlign: "justify"
             }}
           >
             {data.description}

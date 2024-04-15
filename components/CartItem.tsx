@@ -23,6 +23,7 @@ export default function CartItem({ item, addOne, removeItem, removeOne }: CartIt
         style={{
           width: "379px",
           height: "95px",
+          minHeight: "95px",
           backgroundColor: "#fff",
           color: "#000",
           borderRadius: "10px",
@@ -59,7 +60,7 @@ export default function CartItem({ item, addOne, removeItem, removeOne }: CartIt
         >
           <p
             style={{
-              fontSize: "5px",
+              fontSize: "8px",
               margin: 0
             }}
           >

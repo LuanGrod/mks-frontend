@@ -1,34 +1,37 @@
 "use client";
 
 import useCart from "@/stores/useCart";
-import { IoIosCloseCircle } from "react-icons/io";
 import CartItem from "./CartItem";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface CartProps { }
 
 export default function Cart({ }: CartProps) {
   const { items, removeItem, addOne, removeOne, isVisible, toggleCart } = useCart();
+
   return (
-    <>
-      {
-        isVisible && (
-          <>
-            <div
-              style={{
-                position: "fixed",
-                top: 0,
-                right: 0,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-between",
-                width: "486px",
-                height: "100%",
-                backgroundColor: "#0F52BA",
-                boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
-                zIndex: 999,
-              }}
-            >
-              <div
+    <AnimatePresence>
+      {isVisible && (
+        <motion.div
+          initial={{ x: 486}}
+          animate={{ x: 0, type: "spring"}}
+          exit={{ x: 486 }}
+          transition={{ duration: 0.3 }}
+          style={{
+            position: "fixed",
+            top: 0,
+            right: 0,
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            width: "486px",
+            height: "100%",
+            backgroundColor: "#0F52BA",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.5)",
+            zIndex: 999,
+          }}
+        >
+           <div
                 style={{
                   padding: "36px",
                 }}
@@ -128,10 +131,8 @@ export default function Cart({ }: CartProps) {
                   Finalizar Compra
                 </button>
               </div>
-            </div>
-          </>
-        )
-      }
-    </>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

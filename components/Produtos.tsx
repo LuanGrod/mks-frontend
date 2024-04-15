@@ -31,6 +31,9 @@ export default function Produtos({ }: ProdutosProps) {
   return (
     <div style={{
       flexGrow: 10,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
     }}>
       <div
         style={{
