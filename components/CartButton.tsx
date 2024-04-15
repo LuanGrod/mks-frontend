@@ -1,7 +1,8 @@
 "use client";
 
-import styles from "@/components/cart.module.scss";
 import useCart from "@/stores/useCart";
+import styles from "@/components/cart.module.scss";
+
 import { FaShoppingCart } from "react-icons/fa";
 
 interface CartButtonProps { }

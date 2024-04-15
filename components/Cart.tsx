@@ -2,6 +2,8 @@
 
 import useCart from "@/stores/useCart";
 import CartItem from "./CartItem";
+import styles from "@/components/cart.module.scss";
+
 import { AnimatePresence, motion } from "framer-motion";
 
 interface CartProps { }
@@ -54,15 +56,7 @@ export default function Cart({ }: CartProps) {
                     Carrinho <br /> de compras
                   </p>
                   <button
-                    style={{
-                      backgroundColor: "#000",
-                      color: "#fff",
-                      width: "35px",
-                      height: "35px",
-                      border: "none",
-                      borderRadius: "50%",
-                      fontSize: "18px",
-                    }}
+                    className={styles.botaofecharcart}
                     onClick={toggleCart}
                   >
                     X
@@ -119,14 +113,7 @@ export default function Cart({ }: CartProps) {
                   </span>
                 </p>
                 <button
-                  style={{
-                    width: "100%",
-                    height: "97px",
-                    backgroundColor: "#000",
-                    color: "#fff",
-                    border: "none",
-                    fontSize: "28px",
-                  }}
+                 className={styles.botaofinalizarcompra}
                 >
                   Finalizar Compra
                 </button>

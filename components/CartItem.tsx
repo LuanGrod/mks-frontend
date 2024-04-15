@@ -1,6 +1,8 @@
 "use client";
 
 import { Product } from "@/lib/types";
+import styles from "@/components/cart.module.scss";
+
 import { FiMinus } from "react-icons/fi";
 
 type CartItem = {
@@ -142,18 +144,7 @@ export default function CartItem({ item, addOne, removeItem, removeOne }: CartIt
           {parseInt(item.product.price)}
         </p>
         <button
-          style={{
-            position: "absolute",
-            top: "-5px",
-            right: "-5px",
-            backgroundColor: "#000",
-            color: "#fff",
-            width: "22px",
-            height: "22px",
-            border: "none",
-            borderRadius: "50%",
-            fontSize: "13px",
-          }}
+          className={styles.botaoexcluiritem}
           onClick={() => { removeItem(item) }}
         >
           X

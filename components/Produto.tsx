@@ -2,6 +2,7 @@
 
 import { Product } from "@/lib/types";
 import useCart from "@/stores/useCart";
+import styles from "@/components/product.module.scss";
 
 import { FiShoppingBag } from "react-icons/fi";
 
@@ -89,21 +90,7 @@ export default function Produto({ data }: ProdutoProps) {
         </div>
 
         <button
-          style={{
-            background: "#0F52BA",
-            color: "#fff",
-            width: "100%",
-            height: "32px",
-            borderRadius: "0 0 12px 12px",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "10px",
-            fontSize: "16px",
-            fontWeight: "bold",
-            border: "none",
-          }}
+          className={styles.botaocompra}
           onClick={() => addItem({product: data, quantity: 1})}
         >
           <FiShoppingBag />
