@@ -27,7 +27,8 @@ export default async function Skeleton({ }: SkeletonProps) {
         {
           skeleton.map((index) => (
             <ContentLoader 
-            speed={0.3}
+            key={index}
+            speed={0.5}
             width={218}
             height={285}
             viewBox="0 0 218 285"
