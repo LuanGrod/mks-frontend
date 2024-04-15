@@ -3,7 +3,7 @@ import Produtos from '../components/Produtos';
 
 export default function Home() {
   return (
-    <main className={styles.teste}>
+    <main className={styles.main}>
      <Produtos/>
     </main>
   );

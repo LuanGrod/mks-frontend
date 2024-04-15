@@ -1,21 +1,15 @@
 "use client";
 
+import { Product } from "@/lib/types";
+
 import { useQuery } from "@tanstack/react-query";
+import Produto from "./Produto";
+import Skeleton from "./Skeleton";
 
-type Product = {
-  id:          number;
-  name:        string;
-  brand:       string;
-  description: string;
-  photo:       string;
-  price:       string;
-  createdAt:   Date;
-  updatedAt:   Date;
-}
 
-interface ProdutosProps {}
+interface ProdutosProps { }
 
-export default function Produtos({}: ProdutosProps) {
+export default function Produtos({ }: ProdutosProps) {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["produtos"],
     queryFn: () =>
@@ -25,7 +19,9 @@ export default function Produtos({}: ProdutosProps) {
   });
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+        <Skeleton props={"alo"} key={"1"}></Skeleton>
+    );
   }
 
   if (isError) {
@@ -33,17 +29,14 @@ export default function Produtos({}: ProdutosProps) {
   }
 
   // Render the data
-      return (
-        <>
-          {data.products.map((product: Product) => (
-            <div key={product.id}>
-              <h2>{product.name}</h2>
-              <p>{product.brand}</p>
-              <p>{product.description}</p>
-              <img src={product.photo} alt={product.name} />
-              <p>{product.price}</p>
-            </div>
-          ))}
-        </>
-      );
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: "repeat(4, 1fr)",
+    }}>
+      {data.products.map((product: Product) => (
+        <Produto key={product.id} data={product} />
+      ))}
+    </div>
+  );
 }
