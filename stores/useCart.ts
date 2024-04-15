@@ -7,10 +7,12 @@ export type CartItem = {
 }
 
 export type CartState = {
+  isVisible: boolean,
   items: CartItem[]
 }
 
 export type CartActions = {
+  toggleCart: () => void
   addItem: (item: CartItem) => void
   removeItem: (item: CartItem) => void
   addOne: (item: CartItem) => void
@@ -20,7 +22,10 @@ export type CartActions = {
 export type CartStore = CartState & CartActions
 
 const useCart = create<CartStore>((set) => ({
+  isVisible: false,
+  toggleCart: () => set((state: CartState) => ({ isVisible: !state.isVisible })),
   items: [],
+  isActive: () => console.log('Cart is active'),
   addItem: (item: CartItem) => set((state: CartState) => {
     const existingItem = state.items.find((i) => i.product.id === item.product.id);
     if (existingItem) {

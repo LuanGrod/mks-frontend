@@ -6,7 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 interface CartButtonProps { }
 
 export default function CartButton({ }: CartButtonProps) {
-  const { items } = useCart();
+  const { items, toggleCart } = useCart();
   return (
     <>
       <button
@@ -24,6 +24,7 @@ export default function CartButton({ }: CartButtonProps) {
           height: '45px',
           fontWeight: 'bold',
         }}
+        onClick={toggleCart}
       >
         <FaShoppingCart />
         <span>{items.length}</span>

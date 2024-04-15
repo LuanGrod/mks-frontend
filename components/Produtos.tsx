@@ -20,7 +20,7 @@ export default function Produtos({ }: ProdutosProps) {
 
   if (isLoading) {
     return (
-        <Skeleton/>
+      <Skeleton />
     );
   }
 
@@ -28,29 +28,24 @@ export default function Produtos({ }: ProdutosProps) {
     return <div>Error fetching data</div>;
   }
 
-  /*
-  const { items, addItem, removeItem } = useCartStore(
-    (state) => state,
-  )
-  */
-
-  // Render the data
   return (
     <div style={{
-      display: "grid",
-      gridTemplateColumns: "repeat(4, 1fr)",
+      flexGrow: 10,
     }}>
-      {/* {
-        items.map((item) => (
-          <div key={item.id}>
-            <p>{item.name}</p>
-            <button onClick={() => removeItem(item)}>Remove</button>
-          </div>
-        ))
-      } */}
-      {data.products.map((product: Product) => (
-        <Produto key={product.id} data={product} />
-      ))}
+      <div
+        style={{
+          width: "938px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "31px 22px",
+        }}
+      >
+        {data.products.map((product: Product) => (
+          <Produto key={product.id} data={product} />
+        ))}
+      </div>
     </div>
   );
 }
