@@ -3,9 +3,8 @@
 import { Product } from "@/lib/types";
 
 import { useQuery } from "@tanstack/react-query";
-import Produto from "./Produto";
-import Skeleton from "./Skeleton";
-import { useCartStore } from "@/providers/cart-store-provider";
+import Produto from "@/components/Produto";
+import Skeleton from "@/components/Skeleton";
 
 
 interface ProdutosProps { }
@@ -21,7 +20,7 @@ export default function Produtos({ }: ProdutosProps) {
 
   if (isLoading) {
     return (
-        <Skeleton props={"alo"} key={"1"}></Skeleton>
+        <Skeleton/>
     );
   }
 
